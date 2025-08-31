@@ -1,0 +1,4 @@
+{% set pct = (v / 3 * 100) | round(0, 'floor') %}
+<div class="progress x5-progress" role="progressbar" aria-valuenow="{{ pct }}" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar x5-progress-bar" style="width: {{ pct }}%">{{ v }} / 3</div>
+</div>

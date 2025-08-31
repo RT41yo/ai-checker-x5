@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h3 m-0 x5-title">Результат проверки</h1>
+  <a class="btn btn-outline-secondary" href="/">← Новый ответ</a>
+</div>
+
+<div class="row g-3">
+  <div class="col-12 col-lg-6">
+    <div class="card x5-card shadow-sm h-100">
+      <div class="card-body">
+        <h3 class="h5">Баллы по критериям</h3>
+        <table class="table table-borderless align-middle mt-2">
+          <thead class="x5-muted">
+            <tr><th>Критерий</th><th style="width:60%">Балл</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Hard • Корректность</td><td>{% set v = result.scores.hard.correctness %}{% include 'widgets/progress.html' %}</td></tr>
+            <tr><td>Hard • Полнота</td><td>{% set v = result.scores.hard.completeness %}{% include 'widgets/progress.html' %}</td></tr>
+            <tr><td>Soft • Ясность</td><td>{% set v = result.scores.soft.clarity %}{% include 'widgets/progress.html' %}</td></tr>
+            <tr><td>Soft • Структура</td><td>{% set v = result.scores.soft.structure %}{% include 'widgets/progress.html' %}</td></tr>
+          </tbody>
+        </table>
+        <div class="mt-2">
+          <span class="badge rounded-pill x5-badge">Итоговый балл: <b>{{ result.total }}</b> / 3</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-lg-6">
+    <div class="card x5-card shadow-sm h-100">
+      <div class="card-body">
+        <h3 class="h5">Рекомендации</h3>
+        <ol class="x5-ol mt-2">
+          {% for s in result.recommendations %}
+            <li><span class="badge rounded-pill x5-chip me-2">{{ s.criterion }}</span>{{ s.tip }}</li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<details class="mt-3">
+  <summary class="x5-muted">Пояснения модели</summary>
+  <dl class="row mt-2">
+    <dt class="col-sm-3 x5-muted">Корректность</dt><dd class="col-sm-9">{{ result.explanations.correctness }}</dd>
+    <dt class="col-sm-3 x5-muted">Полнота</dt><dd class="col-sm-9">{{ result.explanations.completeness }}</dd>
+    <dt class="col-sm-3 x5-muted">Ясность</dt><dd class="col-sm-9">{{ result.explanations.clarity }}</dd>
+    <dt class="col-sm-3 x5-muted">Структура</dt><dd class="col-sm-9">{{ result.explanations.structure }}</dd>
+  </dl>
+</details>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card x5-card shadow-sm">
+  <div class="card-body">
+    <h1 class="h3 mb-2 x5-title text-primary">AI-проверяющий (демо)</h1>
+    <p class="x5-muted mb-4">Выберите кейс, изучите постановку и введите решение.</p>
+
+    {% if error %}
+      <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    <form action="/preview" method="post" class="row g-3">
+      <!-- Выбор кейса -->
+      <div class="col-12 col-md-6">
+        <label for="case_id" class="form-label fw-semibold">Кейс</label>
+        <div class="x5-area">
+          <select id="case_id" name="case_id" class="form-select">
+            {% for c in cases %}
+              <option
+                value="{{ c.id or c['id'] }}"
+                data-prompt='{{ (c.prompt or c["prompt"]) | tojson }}'
+                data-placeholder='{{ (c.placeholder or c["placeholder"] or "") | tojson }}'
+                data-hint='{{ (c.hint or c["hint"] or "") | tojson }}'>
+                {{ c.title or c['title'] }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <!-- Постановка кейса -->
+      <div class="col-12">
+        <label class="form-label fw-semibold">Постановка кейса</label>
+        <div id="case-prompt" class="x5-prompt x5-field"></div>
+      </div>
+
+      <!-- Ответ сотрудника -->
+      <div class="col-12">
+        <label for="answer" class="form-label fw-semibold">Ваш ответ</label>
+        <div class="x5-area">
+          <textarea id="answer" name="answer" rows="10" class="form-control" placeholder=""></textarea>
+        </div>
+        <div class="d-flex justify-content-between mt-1">
+          <small id="hint" class="x5-muted"></small>
+          <small id="chars" class="x5-muted"></small>
+        </div>
+      </div>
+
+      <!-- Отправка -->
+      <div class="col-12 text-end">
+        <button type="submit" class="btn btn-primary btn-lg" id="check-btn">Проверить</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
