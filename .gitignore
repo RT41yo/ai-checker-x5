@@ -1,1 +1,13 @@
 .env
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# docker
+*.log
+
+# notebooks (если появятся)
+*.ipynb_checkpoints
