@@ -1,0 +1,65 @@
+[
+  {
+    "id": "rubric-1",
+    "title": "Поставки (операционная эффективность)",
+    "scale_min": 0,
+    "scale_max": 3,
+    "weights": {
+      "hard.correctness": 0.35,
+      "hard.completeness": 0.25,
+      "soft.clarity": 0.20,
+      "soft.structure": 0.20
+    },
+    "descriptors": {
+      "hard.correctness": "Фактическая точность, корректные методы (ABC/XYZ, прогноз, safety stock), уместные метрики.",
+      "hard.completeness": "Покрыты ключевые шаги: сбор данных, анализ, расчёты, внедрение, измерение результата.",
+      "soft.clarity": "Ясность и конкретика формулировок, отсутствие воды.",
+      "soft.structure": "Логика и структура: шаги, списки, выводы."
+    },
+    "thresholds": {
+      "pass_total": 1.8
+    }
+  },
+  {
+    "id": "rubric-2",
+    "title": "Списания (качество процессов и мерчандайзинг)",
+    "scale_min": 0,
+    "scale_max": 3,
+    "weights": {
+      "hard.correctness": 0.30,
+      "hard.completeness": 0.35,
+      "soft.clarity": 0.15,
+      "soft.structure": 0.20
+    },
+    "descriptors": {
+      "hard.correctness": "Причины списаний выделены корректно (прогноз, хранение, логистика, персонал), меры — реализуемы.",
+      "hard.completeness": "Проработаны категории/SKU, пилоты, динамическое ценообразование, обучение, контрольные метрики.",
+      "soft.clarity": "Понятные формулировки, примеры, цифры.",
+      "soft.structure": "Есть этапы диагностики → меры → контроль → масштабирование."
+    },
+    "thresholds": {
+      "pass_total": 2.0
+    }
+  },
+  {
+    "id": "rubric-3",
+    "title": "Клиентский опыт (CX/омниканал)",
+    "scale_min": 0,
+    "scale_max": 3,
+    "weights": {
+      "hard.correctness": 0.25,
+      "hard.completeness": 0.25,
+      "soft.clarity": 0.25,
+      "soft.structure": 0.25
+    },
+    "descriptors": {
+      "hard.correctness": "Релевантные инициативы (персонализация, планограммы, самообслуживание, омниканальные акции), корректные метрики (NPS, retention).",
+      "hard.completeness": "Покрыт онлайн и оффлайн, пути клиента, пилоты и измерение эффекта.",
+      "soft.clarity": "Коротко, по делу, понятный язык.",
+      "soft.structure": "Чёткая структура: гипотеза → инициатива → метрики → план внедрения."
+    },
+    "thresholds": {
+      "pass_total": 1.7
+    }
+  }
+]

@@ -1,0 +1,129 @@
+:root{
+  --x5-primary:#00723E;  /* зелёный X5 */
+  --x5-light:#F2F4F5;    /* светло-серый фон */
+  --x5-white:#FFFFFF;    /* белый */
+  --x5-text:#0B0D0C;     /* тёмный текст */
+  --x5-muted:#6C757D;
+  --x5-border:#DFE3E6;
+}
+
+/* фон страницы и базовый текст */
+body{background:var(--x5-light);color:var(--x5-text);}
+
+/* Шапка — зелёная, текст белый */
+.x5-header{background:var(--x5-primary);color:var(--x5-white);padding:10px 0;}
+.x5-logo{font-weight:800;letter-spacing:.3px;color:var(--x5-white);}
+
+/* Карточки */
+.x5-card{background:var(--x5-white);border:1px solid var(--x5-border);border-radius:14px;}
+.x5-title{color:var(--x5-text);}
+.x5-muted{color:var(--x5-muted);}
+
+/* Инпуты */
+.x5-input{background:var(--x5-white);color:var(--x5-text);border:1px solid var(--x5-border);}
+.x5-input:focus{border-color:var(--x5-primary);box-shadow:0 0 0 .2rem rgba(0,114,62,.15);}
+
+/* Постановка кейса */
+.x5-prompt{
+  background:#FFFFFF;        /* белый фон */
+  color:#0B0D0C;             /* тёмный текст */
+  border:1px solid #DFE3E6;
+  border-radius:10px;
+  padding:12px 14px;
+  min-height:72px;
+  white-space:pre-wrap;
+  line-height:1.55;
+}
+
+/* Кнопка primary — зелёная поверх Bootstrap */
+.btn-primary{
+  background-color:var(--x5-primary) !important;
+  border-color:var(--x5-primary) !important;
+  color:var(--x5-white) !important;
+  font-weight:600;
+}
+.btn-primary:hover,.btn-primary:focus{
+  background-color:#008F4C !important;
+  border-color:#008F4C !important;
+}
+
+/* Прогресс-бары */
+.x5-progress{background:var(--x5-light);border:1px solid var(--x5-border);height:28px;border-radius:999px;overflow:hidden;}
+.x5-progress-bar{background:var(--x5-primary);color:var(--x5-white);font-weight:600;}
+
+/* Бейджи */
+.x5-badge{background:var(--x5-light);color:var(--x5-text);border:1px solid var(--x5-border);}
+.x5-chip{background:var(--x5-white);color:var(--x5-primary);border:1px solid var(--x5-border);}
+
+/* Подвал компактный */
+.x5-footer{background:var(--x5-white);border-top:1px solid var(--x5-border);}
+
+/* Нумерованный список для рекомендаций */
+.x5-ol {
+  padding-left: 1.4rem;  /* чуть левее цифр */
+  margin: 0;
+}
+.x5-ol li {
+  margin-bottom: 0.4rem;  /* компактнее строки */
+}
+
+/* Нумерованный список — выравнивание по левому краю */
+.x5-ol {
+  list-style-type: decimal;      /* обычные цифры */
+  list-style-position: inside;   /* номер внутри строки */
+  padding-left: 0;               /* убрать стандартный отступ */
+  margin: 0;                     /* убрать внешние поля */
+}
+
+.x5-ol li {
+  margin: 0.4rem 0;              /* отступ между пунктами */
+  padding-left: 0;               /* убрать висячий отступ */
+  text-align: left;              /* текст выравниваем влево */
+}
+
+.x5-prompt br {
+  content: "";
+  display: block;
+  margin-bottom: 0.5rem; /* небольшой отступ между абзацами */
+}
+
+/* Зеленый цвет для фирменных элементов */
+.text-primary {
+  color: var(--x5-primary) !important;
+}
+
+/* Выделение обязательных полей */
+.x5-field {
+  border: 2px solid var(--x5-primary);
+  border-radius: 8px;
+  padding: 0.75rem;
+  background-color: #ffffff;
+  transition: box-shadow 0.2s ease;
+}
+
+.x5-field:focus-within {
+  box-shadow: 0 0 0 0.25rem rgba(0,114,62,0.25);
+}
+
+/* Блоки с заливкой для ввода */
+.x5-area {
+  background-color: #E9F5EE;   /* очень светлый зелёный */
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+.x5-area select,
+.x5-area textarea {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.x5-area select:focus,
+.x5-area textarea:focus {
+  background: #ffffff;
+  border: 1px solid var(--x5-primary);
+  border-radius: 6px;
+  box-shadow: 0 0 0 0.2rem rgba(0,114,62,0.2);
+}
